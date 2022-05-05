@@ -16,7 +16,7 @@ def verifica_cidades():
         return False
 
 # função que recebe o nome da cidade e verifca se ela consta na lista
-def buscador(old):
+def buscador_cidades(old):
     for i in range(len(cidades)):
         if old == cidades[i]:
             return True
@@ -28,7 +28,7 @@ def buscador(old):
 def add_cidade():
     cidade = input("Qual cidade você gostaria de cadastrar: ").upper()
     estado = input("Qual o estado para essa cidade: ").upper()
-    if not buscador(cidade):
+    if not buscador_cidades(cidade):
         cidades.append(cidade)
         estados.append(estado)
         print(f"Cidade {cidade} e estado {estado} cadastrada com sucesso!\n")
@@ -57,7 +57,7 @@ def list_cidade_estado():
 def alt_cidade():
     if verifica_cidades():
         old = input("Informe o nome da cidade a ser alterada: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             new = input("Informe o novo nome da cidade: ").upper()
             for i in range(len(cidades)):
                 if old == cidades[i]:
@@ -70,7 +70,7 @@ def alt_cidade():
 def alt_estado():
     if verifica_cidades():
         old = input("Informe o nome do estado a ser alterada: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             new = input("Informe o novo nome do estado: ").upper()
             for i in range(len(estados)):
                 if old == estados[i]:
@@ -102,7 +102,7 @@ def menu_exc():
 def exc_cidade():
     if verifica_cidades():
         old = input("Informe o nome da cidade a ser excluida: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             for i in range(len(cidades)):
                 if old == cidades[i]:
                     print(f"Cidade {cidades[i]} excluida com sucesso!\n")
@@ -114,7 +114,7 @@ def exc_estado():
         old = input("Informe o nome do estado a ser excluida: ").upper()
         aux_list = list()
         cont = 0
-        if buscador(old):
+        if buscador_cidades(old):
             for i in range(len(estados)):
                 if old == estados[i]:
                     aux_list.append(int(i))
