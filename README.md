@@ -23,7 +23,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [x] New feature (non-breaking change which adds functionality)
 - [ ] Bug fix (non-breaking change which fixes an issue)
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+Esse projeto está sob a licença GNU. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ## 🤝 Contribuídores
 
