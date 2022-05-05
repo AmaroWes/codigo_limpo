@@ -146,7 +146,7 @@ def op_menu_controle(val):
     elif val == 1:
         add_cidade()
     elif val == 2:
-        list_cidade()
+        lista_cidade()
     elif val == 3:
         alterar_cidade()
     elif val == 4:
