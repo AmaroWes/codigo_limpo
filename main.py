@@ -54,7 +54,7 @@ def list_cidade_estado():
         print('\n')
 
 # função para alterar a cidade
-def alt_cidade():
+def alterar_cidade():
     if verifica_cidades():
         old = input("Informe o nome da cidade a ser alterada: ").upper()
         if buscador_cidades(old):
@@ -148,7 +148,7 @@ def op_menu_controle(val):
     elif val == 2:
         list_cidade()
     elif val == 3:
-        alt_cidade()
+        alterar_cidade()
     elif val == 4:
         alterar_estado()
     elif val == 5:
