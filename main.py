@@ -6,7 +6,7 @@ cidades = list()
 estados = list()
 
 # função para verificar se existe algo dentro da lista cidades
-def verify_cidades():
+def verifica_cidades():
     try:
         cidades[0] = cidades[0]
         return True
@@ -39,14 +39,14 @@ def add_cidade():
 
 # função para listar a cidade
 def list_cidade():
-    if verify_cidades():
+    if verifica_cidades():
         for i in range(len(cidades)):
             print(f"{i} {cidades[i]} {estados[i]}")
         print('\n')
 
 # função para listar as cidades de um determinado estado
 def list_cidade_estado():
-    if verify_cidades():
+    if verifica_cidades():
         aux = input(f"Informe o estado: ").upper()
         for i in range(len(estados)):
             if aux == estados[i]:
@@ -55,7 +55,7 @@ def list_cidade_estado():
 
 # função para alterar a cidade
 def alt_cidade():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome da cidade a ser alterada: ").upper()
         if buscador(old):
             new = input("Informe o novo nome da cidade: ").upper()
@@ -68,7 +68,7 @@ def alt_cidade():
 
 # função para alterar um estado
 def alt_estado():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome do estado a ser alterada: ").upper()
         if buscador(old):
             new = input("Informe o novo nome do estado: ").upper()
@@ -100,7 +100,7 @@ def menu_exc():
 
 # função para excluir a cidade            
 def exc_cidade():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome da cidade a ser excluida: ").upper()
         if buscador(old):
             for i in range(len(cidades)):
@@ -110,7 +110,7 @@ def exc_cidade():
                     estados.remove(estados[i])
 
 def exc_estado():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome do estado a ser excluida: ").upper()
         aux_list = list()
         cont = 0
