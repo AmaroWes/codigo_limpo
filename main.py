@@ -37,7 +37,7 @@ def add_cidade():
         print(f"A cidade {cidade} já consta na nossa DB!\n")
         sleep(1)
 
-# função para listar a cidade
+# função para listar as cidades
 def lista_cidade():
     if verifica_cidades():
         for i in range(len(cidades)):
@@ -79,7 +79,7 @@ def alterar_estado():
         else:
             print("O estado informado não consta na nossa DB!\n")
 
-# submenu
+# submenu função de excluir cidades ou estados
 def menu_exc():
     try:
         print(f"1 - Excluir cidade")
@@ -109,6 +109,7 @@ def exc_cidade():
                     cidades.remove(cidades[i])
                     estados.remove(estados[i])
 
+# funçaõ para excluir estados e seus dependentes
 def exc_estado():
     if verifica_cidades():
         old = input("Informe o nome do estado a ser excluida: ").upper()
