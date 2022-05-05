@@ -6,7 +6,7 @@ cidades = list()
 estados = list()
 
 # função para verificar se existe algo dentro da lista cidades
-def verify_cidades():
+def verifica_cidades():
     try:
         cidades[0] = cidades[0]
         return True
@@ -16,7 +16,7 @@ def verify_cidades():
         return False
 
 # função que recebe o nome da cidade e verifca se ela consta na lista
-def buscador(old):
+def buscador_cidades(old):
     for i in range(len(cidades)):
         if old == cidades[i]:
             return True
@@ -28,7 +28,7 @@ def buscador(old):
 def add_cidade():
     cidade = input("Qual cidade você gostaria de cadastrar: ").upper()
     estado = input("Qual o estado para essa cidade: ").upper()
-    if not buscador(cidade):
+    if not buscador_cidades(cidade):
         cidades.append(cidade)
         estados.append(estado)
         print(f"Cidade {cidade} e estado {estado} cadastrada com sucesso!\n")
@@ -37,16 +37,16 @@ def add_cidade():
         print(f"A cidade {cidade} já consta na nossa DB!\n")
         sleep(1)
 
-# função para listar a cidade
-def list_cidade():
-    if verify_cidades():
+# função para listar as cidades
+def lista_cidade():
+    if verifica_cidades():
         for i in range(len(cidades)):
             print(f"{i} {cidades[i]} {estados[i]}")
         print('\n')
 
 # função para listar as cidades de um determinado estado
-def list_cidade_estado():
-    if verify_cidades():
+def lista_cidade_estado():
+    if verifica_cidades():
         aux = input(f"Informe o estado: ").upper()
         for i in range(len(estados)):
             if aux == estados[i]:
@@ -54,10 +54,10 @@ def list_cidade_estado():
         print('\n')
 
 # função para alterar a cidade
-def alt_cidade():
-    if verify_cidades():
+def alterar_cidade():
+    if verifica_cidades():
         old = input("Informe o nome da cidade a ser alterada: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             new = input("Informe o novo nome da cidade: ").upper()
             for i in range(len(cidades)):
                 if old == cidades[i]:
@@ -67,10 +67,10 @@ def alt_cidade():
             print("A cidade informada não consta na nossa DB!\n")
 
 # função para alterar um estado
-def alt_estado():
-    if verify_cidades():
+def alterar_estado():
+    if verifica_cidades():
         old = input("Informe o nome do estado a ser alterada: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             new = input("Informe o novo nome do estado: ").upper()
             for i in range(len(estados)):
                 if old == estados[i]:
@@ -79,7 +79,7 @@ def alt_estado():
         else:
             print("O estado informado não consta na nossa DB!\n")
 
-# submenu
+# submenu função de excluir cidades ou estados
 def menu_exc():
     try:
         print(f"1 - Excluir cidade")
@@ -100,21 +100,22 @@ def menu_exc():
 
 # função para excluir a cidade            
 def exc_cidade():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome da cidade a ser excluida: ").upper()
-        if buscador(old):
+        if buscador_cidades(old):
             for i in range(len(cidades)):
                 if old == cidades[i]:
                     print(f"Cidade {cidades[i]} excluida com sucesso!\n")
                     cidades.remove(cidades[i])
                     estados.remove(estados[i])
 
+# funçaõ para excluir estados e seus dependentes
 def exc_estado():
-    if verify_cidades():
+    if verifica_cidades():
         old = input("Informe o nome do estado a ser excluida: ").upper()
         aux_list = list()
         cont = 0
-        if buscador(old):
+        if buscador_cidades(old):
             for i in range(len(estados)):
                 if old == estados[i]:
                     aux_list.append(int(i))
@@ -135,24 +136,24 @@ def interface():
     print("6 - Retirar da lista uma cidade ou estado")
 
 # função para fechar o programa
-def close():
+def fechar():
     print("Ok, até uma outra oportunidade")
     exit()
 
 # função para controlar o menu de opções
-def controll(val):
+def op_menu_controle(val):
     if val == 0:
-        close()
+        fechar()
     elif val == 1:
         add_cidade()
     elif val == 2:
-        list_cidade()
+        lista_cidade()
     elif val == 3:
-        alt_cidade()
+        alterar_cidade()
     elif val == 4:
-        alt_estado()
+        alterar_estado()
     elif val == 5:
-        list_cidade_estado()
+        lista_cidade_estado()
     elif val == 6:
         menu_exc()
     else:
@@ -165,7 +166,7 @@ def menu():
             interface()
             val = int(input("O que você gostaria de fazer? "))
             print('\n')
-            controll(val)
+            op_menu_controle(val)
         except ValueError:
             print('\n')
             print("Por gentileza informe o número da opção desejada!\n")
