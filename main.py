@@ -140,7 +140,7 @@ def fechar():
     exit()
 
 # função para controlar o menu de opções
-def controll(val):
+def op_menu_controle(val):
     if val == 0:
         fechar()
     elif val == 1:
@@ -165,7 +165,7 @@ def menu():
             interface()
             val = int(input("O que você gostaria de fazer? "))
             print('\n')
-            controll(val)
+            op_menu_controle(val)
         except ValueError:
             print('\n')
             print("Por gentileza informe o número da opção desejada!\n")
