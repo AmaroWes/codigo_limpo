@@ -67,7 +67,7 @@ def alt_cidade():
             print("A cidade informada não consta na nossa DB!\n")
 
 # função para alterar um estado
-def alt_estado():
+def alterar_estado():
     if verifica_cidades():
         old = input("Informe o nome do estado a ser alterada: ").upper()
         if buscador_cidades(old):
@@ -150,7 +150,7 @@ def op_menu_controle(val):
     elif val == 3:
         alt_cidade()
     elif val == 4:
-        alt_estado()
+        alterar_estado()
     elif val == 5:
         list_cidade_estado()
     elif val == 6:
