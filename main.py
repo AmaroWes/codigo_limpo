@@ -135,14 +135,14 @@ def interface():
     print("6 - Retirar da lista uma cidade ou estado")
 
 # função para fechar o programa
-def close():
+def fechar():
     print("Ok, até uma outra oportunidade")
     exit()
 
 # função para controlar o menu de opções
 def controll(val):
     if val == 0:
-        close()
+        fechar()
     elif val == 1:
         add_cidade()
     elif val == 2:
