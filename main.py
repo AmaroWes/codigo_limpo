@@ -38,7 +38,7 @@ def add_cidade():
         sleep(1)
 
 # função para listar a cidade
-def list_cidade():
+def lista_cidade():
     if verifica_cidades():
         for i in range(len(cidades)):
             print(f"{i} {cidades[i]} {estados[i]}")
