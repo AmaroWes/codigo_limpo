@@ -45,7 +45,7 @@ def list_cidade():
         print('\n')
 
 # função para listar as cidades de um determinado estado
-def list_cidade_estado():
+def lista_cidade_estado():
     if verifica_cidades():
         aux = input(f"Informe o estado: ").upper()
         for i in range(len(estados)):
@@ -152,7 +152,7 @@ def op_menu_controle(val):
     elif val == 4:
         alterar_estado()
     elif val == 5:
-        list_cidade_estado()
+        lista_cidade_estado()
     elif val == 6:
         menu_exc()
     else:
